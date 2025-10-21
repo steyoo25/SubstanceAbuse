@@ -188,7 +188,7 @@ function applyDrugEffect(drugId, effectTimeSeconds) {
         flashOverlay.style.backgroundColor = randomColor;
         flashOverlay.style.opacity = flashCount % 2 === 0 ? 0.8 : 0.3;
         flashCount++;
-    }, 200); // Much faster flashing (200ms instead of 500ms)
+    }, 200);
 }
 
 // End drug effect
@@ -225,6 +225,7 @@ function startRehab() {
     
     rehabText.textContent = rehabTypingText;
     typingArea.value = '';
+    typingArea.placeholder = 'Type the text above exactly as shown...';
     rehabModal.style.display = 'flex';
     typingArea.focus();
 }
