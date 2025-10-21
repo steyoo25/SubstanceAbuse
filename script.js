@@ -277,7 +277,33 @@ function setupEventListeners() {
     
     rehabBtn.addEventListener('click', startRehab);
     submitRehab.addEventListener('click', submitRehabAttempt);
-    cancelRehab.addEventListener('click', doCancelRehab);            
+    cancelRehab.addEventListener('click', doCancelRehab);
+    
+    // Prevent pasting and right-click context menu in typing area
+    typingArea.addEventListener('paste', (e) => {
+        e.preventDefault();
+        showTemporaryMessage('Pasting is not allowed in rehab!');
+    });
+    
+    typingArea.addEventListener('copy', (e) => {
+        e.preventDefault();
+        showTemporaryMessage('Copying is not allowed in rehab!');
+    });
+    
+    typingArea.addEventListener('cut', (e) => {
+        e.preventDefault();
+        showTemporaryMessage('Cutting is not allowed in rehab!');
+    });
+    
+    // Prevent right-click context menu
+    typingArea.addEventListener('contextmenu', (e) => e.preventDefault());
+    
+    // Prevent drag and drop
+    typingArea.addEventListener('drop', (e) => e.preventDefault());
+    typingArea.addEventListener('dragstart', (e) => e.preventDefault());
+    
+    // Prevent global right-click context menu
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
 }
 
 // Background music
