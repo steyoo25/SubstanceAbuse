@@ -306,6 +306,28 @@ function setupEventListeners() {
     document.addEventListener('contextmenu', (e) => e.preventDefault());
 }
 
+// Show temporary message when user tries to cheat
+function showTemporaryMessage(text) {
+    const tempMessage = document.createElement('div');
+    tempMessage.textContent = text;
+    tempMessage.style.position = 'fixed';
+    tempMessage.style.top = '50%';
+    tempMessage.style.left = '50%';
+    tempMessage.style.transform = 'translate(-50%, -50%)';
+    tempMessage.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
+    tempMessage.style.color = 'white';
+    tempMessage.style.padding = '10px 20px';
+    tempMessage.style.borderRadius = '5px';
+    tempMessage.style.zIndex = '1000';
+    tempMessage.style.fontSize = '18px';
+    
+    document.body.appendChild(tempMessage);
+    
+    setTimeout(() => {
+        document.body.removeChild(tempMessage);
+    }, 2000);
+}
+
 // Background music
 function playBackgroundMusic() {
     backgroundMusic.volume = 0.5;
