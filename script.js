@@ -183,11 +183,18 @@ function applyDrugEffect(drugId, effectTimeSeconds) {
             return;
         }
         
-        // Random colorful flashing
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        flashOverlay.style.backgroundColor = randomColor;
-        flashOverlay.style.opacity = flashCount % 2 === 0 ? 0.8 : 0.3;
-        flashCount++;
+        if (drug === "marijuana") {
+            const randomColor = '#808080';
+            flashOverlay.style.backgroundColor = randomColor;
+            flashOverlay.style.opacity = flashCount % 2 === 0 ? 0.8 : 0.3;
+            flashCount++;
+        } else {
+            // Random colorful flashing
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            flashOverlay.style.backgroundColor = randomColor;
+            flashOverlay.style.opacity = flashCount % 2 === 0 ? 0.8 : 0.3;
+            flashCount++;
+        }
     }, 200);
 }
 
